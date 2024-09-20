@@ -134,16 +134,9 @@ button:hover {
             <label for="psw"><b>Contraseña</b></label>
             <input type="password" placeholder="Ingresa tu contraseña" name="password" required>
 
-<<<<<<< HEAD
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-=======
             <!-- Confirmar Contraseña -->
             <label for="psw-repeat"><b>Repite la contraseña</b></label>
             <input type="password" placeholder="Repite la contraseña" name="password_confirmation" required>
->>>>>>> c96e88dcb8abdd18d94b93bf216d9caca280c653
 
             <label>
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Recordarme
