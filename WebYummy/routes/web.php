@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SolicitudController;
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,7 +27,7 @@ Route::get('/registrosolicitud', [SolicitudController::class, 'create'])->name('
 // Ruta para almacenar la solicitud
 Route::post('/solicitudes', [SolicitudController::class, 'store'])->name('solicitudes.store');
 
-
+Route::put('/restaurant/{id}/update-status', [RestauranteController::class, 'updateStatus'])->name('restaurant.update.status');
 
 // Ruta general del dashboard
 Route::get('/dashboard', function () {

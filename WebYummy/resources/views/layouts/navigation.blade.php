@@ -32,7 +32,7 @@
                         </x-nav-link>
                     @endif
 
-                    @if(Auth::user()->rol === 'restaurante')
+                    @if(Auth::user()->tipo === 'restaurante')
                         <x-nav-link :href="route('restaurante.dashboard')" :active="request()->routeIs('restaurante.dashboard')" class="text-white hover:text-yellow-400">
                             {{ __('Restaurante Dashboard') }}
                         </x-nav-link>
