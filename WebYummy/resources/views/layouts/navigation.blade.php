@@ -1,4 +1,3 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
 <nav x-data="{ open: false }" class="bg-orange-500 dark:bg-gray-800 border-b border-orange-600 dark:border-gray-700">
 
     <!-- Primary Navigation Menu -->
@@ -122,17 +121,6 @@
                 </x-responsive-nav-link>
             @endif
         
-
-            <x-responsive-nav-link :href="route('pedidos')" :active="request()->routeIs('pedidos')" class="text-white">
-                {{ __('Pedidos') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('restaurants')" :active="request()->routeIs('restaurants')" class="text-white">
-                {{ __('Restaurantes') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('drivers')" :active="request()->routeIs('drivers')" class="text-white">
-                {{ __('Repartidores') }}
-            </x-responsive-nav-link>
-        </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

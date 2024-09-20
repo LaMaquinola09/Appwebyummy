@@ -4,7 +4,7 @@
 
     <h2 style="text-align:center;">Iniciar Sesión</h2>
 
-    <form method="POST" action="{{ route('login') }}" style="border: 3px solid #f1f1f1; padding: 20px; border-radius: 10px;">
+    <form method="POST" action="{{ route('login') }}" style="border: 3px solid #f1f1f1; padding: 20px; border-radius: 10px;" class="py-3">
         @csrf
 
         <div class="imgcontainer" style="text-align: center; margin: 24px 0 12px 0;">
