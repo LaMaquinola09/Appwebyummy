@@ -20,14 +20,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Rutas para el admin
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'rol:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/catalogo', [CatalogoController::class, 'index'])->name('admin.catalogo');
     Route::get('/admin/producto', [ProductoController::class, 'index'])->name('admin.producto');
 });
 
 // Rutas para el repartidor
-Route::middleware(['auth', 'role:repartidor'])->group(function () {
+Route::middleware(['auth', 'rol:repartidor'])->group(function () {
     Route::get('/repartidor/dashboard', [RepartidorDashboardController::class, 'index'])->name('repartidor.dashboard');
     Route::get('/repartidor/pedidos', [RepartidorController::class, 'index'])->name('repartidor.pedidos'); // Asegúrate de tener este controlador
 });
@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Rutas para el restaurante
-Route::middleware(['auth', 'role:restaurante'])->group(function () {
+Route::middleware(['auth', 'rol:restaurante'])->group(function () {
     Route::get('/restaurante/dashboard', [RestauranteDashboardController::class, 'index'])->name('restaurante.dashboard');
     Route::get('/restaurante/menu', [RestauranteController::class, 'index'])->name('restaurante.menu'); // Asegúrate de tener este controlador
 });
