@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\RestauranteController;
 use App\Http\Controllers\RepartidorController;
+use App\Http\Controllers\LegalController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -59,5 +60,9 @@ Route::middleware('auth')->group(function () {
     // Rutas para Repartidores
     Route::get('/repartidores', [RepartidorController::class, 'index'])->name('drivers');
 });
+
+//Rutas para aviso de privacidad y términos y condiciones
+Route::get('/terminos', [LegalController::class, 'terminos'])->name('terminos');
+Route::get('/aviso-privacidad', [LegalController::class, 'avisoPrivacidad'])->name('aviso_privacidad');
 
 require __DIR__.'/auth.php';
