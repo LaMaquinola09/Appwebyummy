@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User; // Importar el modelo User
-use App\Models\Restaurant; // Importar el modelo Restaurant
+use App\Models\User;
+use App\Models\Restaurante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,7 +21,6 @@ class SolicitudController extends Controller
 
     public function store(Request $request)
     {
-        // Validar los datos del formulario con mensajes personalizados
         $request->validate([
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -48,8 +47,7 @@ class SolicitudController extends Controller
             'hora_apertura.required' => 'La hora de apertura es obligatoria.',
             'hora_cierre.required' => 'La hora de cierre es obligatoria.',
         ]);
-    
-        // Crear un nuevo usuario
+
         $user = User::create([
             'nombre' => $request->nombre,
             'email' => $request->email,
@@ -58,18 +56,17 @@ class SolicitudController extends Controller
             'password' => Hash::make($request->password),
             'tipo' => 'restaurante',
         ]);
-    
-        // Crear un nuevo restaurante relacionado con el usuario
-        Restaurant::create([
+
+        Restaurante::create([
             'user_id' => $user->id,
             'nombre' => $request->nombre_negocio,
             'direccion' => $request->direccion,
             'telefono' => $request->telefono,
             'horario' => $request->hora_apertura . ' - ' . $request->hora_cierre,
-            'estado' => 'activo',
+            'estado' => 'pendiente',
             'categoria' => $request->categoria,
         ]);
-    
+
         return redirect()->route('solicitudRestaurante.notificacion')->with('success', 'Restaurante registrado con éxito');
     }
 }

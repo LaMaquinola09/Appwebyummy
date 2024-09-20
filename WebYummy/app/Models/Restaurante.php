@@ -22,7 +22,8 @@ class Restaurante extends Model
         'direccion',
         'telefono',
         'horario',
-        'estado'
+        'estado',
+        'categoria',
     ];
 
 
