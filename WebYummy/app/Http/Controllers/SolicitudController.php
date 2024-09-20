@@ -63,8 +63,8 @@ class SolicitudController extends Controller
         // Crear un nuevo restaurante relacionado con el usuario
         $restaurante = Restaurante::create([
             'user_id' => $user->id, // Relacionar el restaurante con el usuario creado
-            'horario' => $request->hora_apertura . ' - ' . $request->hora_cierre, // Combinar horas de apertura y cierre
-            // Agregar otros campos según tu modelo si es necesario
+            'horario' => $request->hora_apertura, // Guardar solo el horario, puedes ajustar esto según tu modelo
+            // Agregar más campos según tu modelo si es necesario
         ]);
 
         // Redirigir o mostrar un mensaje de éxito
