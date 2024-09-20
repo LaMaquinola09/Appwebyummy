@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitud de Restaurante</title>
-    <style>
+<x-guest-layout>
+<style>
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -89,14 +83,12 @@
             }
         }
     </style>
-</head>
 
-<body>
 
-    <form action="{{ route('solicitudes.store') }}" method="POST">
+<form action="{{ route('solicitudes.store') }}" method="POST">
         @csrf
         <div class="container">
-            <h1>Solicitud de Restaurante</h1>
+            <center><h1 class="">Solicitud de Restaurante</h1></center>
 
             @if ($errors->any())
                 <div>
@@ -105,6 +97,12 @@
                             <li>{{ $error }}</li>
                         @endforeach
                     </ul>
+                </div>
+            @endif
+
+            @if (session('success'))
+                <div style="color: green; margin-bottom: 20px;">
+                    {{ session('success') }}
                 </div>
             @endif
 
@@ -155,7 +153,4 @@
             </div>
         </div>
     </form>
-
-</body>
-
-</html>
+</x-guest-layout>
