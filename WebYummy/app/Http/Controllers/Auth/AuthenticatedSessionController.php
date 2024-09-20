@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
         $user = User::find($request->user()->id);
         
         if($user->tipo == 'admin'){
-            $pendingRestaurants = Restaurante::where('estado', 'pendiente')->get();
+            $pendingRestaurants = Restaurante::where('estado', 'Pendiente')->with('user')->get();
             return redirect()->intended(RouteServiceProvider::HOME_ADMIN)->with([
                 'user' => $user,
                 'pendingRestaurants' => $pendingRestaurants,

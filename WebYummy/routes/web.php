@@ -14,6 +14,7 @@ use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\MenuItemController;
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,7 +34,7 @@ Route::get('/menu', [MenuItemController::class, 'index'])->name('menu.index');
 Route::get('/createmenu', [MenuItemController::class, 'create'])->name('menu.create');
 
 
-
+Route::put('/restaurant/{id}/update-status', [RestauranteController::class, 'updateStatus'])->name('restaurant.update.status');
 
 // Ruta general del dashboard
 Route::get('/dashboard', function () {

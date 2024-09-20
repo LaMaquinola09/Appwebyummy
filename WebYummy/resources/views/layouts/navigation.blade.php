@@ -14,28 +14,7 @@
                 <!-- Navigation Links -->
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
-                    @if(Auth::user()->rol === 'cliente')
-                        <x-nav-link :href="route('cliente.dashboard')" :active="request()->routeIs('cliente.dashboard')" class="text-white hover:text-yellow-400">
-                            {{ __('Cliente Dashboard') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('cliente.historial')" :active="request()->routeIs('cliente.historial')" class="text-white hover:text-yellow-400">
-                            {{ __('Historial de Pedidos') }}
-                        </x-nav-link>
-                    @endif
-
-                    @if(Auth::user()->rol === 'repartidor')
-                        <x-nav-link :href="route('repartidor.dashboard')" :active="request()->routeIs('repartidor.dashboard')" class="text-white hover:text-yellow-400">
-                            {{ __('Repartidor Dashboard') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('repartidor.pedidos')" :active="request()->routeIs('repartidor.pedidos')" class="text-white hover:text-yellow-400">
-                            {{ __('Mis Pedidos') }}
-                        </x-nav-link>
-                    @endif
-
-                    @if(Auth::user()->rol === 'restaurante')
-                        <x-nav-link :href="route('restaurante.dashboard')" :active="request()->routeIs('restaurante.dashboard')" class="text-white hover:text-yellow-400">
-                            {{ __('Restaurante Dashboard') }}
-                        </x-nav-link>
+                    @if(Auth::user()->tipo === 'restaurante')
                         <x-nav-link :href="route('restaurante.menu')" :active="request()->routeIs('restaurante.menu')" class="text-white hover:text-yellow-400">
                             {{ __('Mi Menú') }}
                         </x-nav-link>
