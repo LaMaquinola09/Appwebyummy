@@ -46,11 +46,10 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'nombre' => $request->nombre, // Guardar nombre
             'email' => $request->email, // Guardar email
-            'password' => Hash::make($request->password), // Encriptar y guardar contraseña
+            'tipo' => 'restaurante', // Encriptar y guardar contraseña
             'direccion' => $request->direccion, // Guardar dirección
             'telefono' => $request->telefono, // Guardar teléfono
-            'vehiculo' => $request->vehiculo, // Guardar vehículo (puede ser nulo)
-            'rol' => $request->rol, // Guardar rol
+            'password' => Hash::make($request->password) // Guardar rol
         ]);
 
         // Disparar el evento de registro

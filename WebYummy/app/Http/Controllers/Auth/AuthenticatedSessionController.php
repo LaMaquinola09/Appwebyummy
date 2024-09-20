@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
@@ -28,8 +29,13 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        
+        $user = User::find($request->user()->id);
+        if($user->tipo == 'admin'){
+            return redirect()->intended(RouteServiceProvider::HOME_ADMIN);
+        } else if($user->tipo == 'restaurante'){
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
     }
 
     /**
