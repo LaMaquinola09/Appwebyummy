@@ -2,7 +2,7 @@
 .hero-banner {
     width: 96%;
     padding: 0;
-    background-color: #e18f00;
+    background-color: #ec860a;
     color: white;
     overflow: hidden;
     margin: 30px auto;
@@ -39,7 +39,7 @@
 }
 
 .slide-wrapper {
-    background-color: #e18f00;
+    background-color: #ec860a;
     padding: 20px;
     border-radius: 20px;
     display: flex;
@@ -67,7 +67,7 @@
 .promo-content {
     width: 50%;
     padding: 20px;
-    background-color: #006400;
+    background-color: #ec860a;
     color: #fff;
     border-radius: 10px;
 }
@@ -85,7 +85,7 @@
 
 .cta-button {
     background-color: #ffd700;
-    color: #006400;
+    color: #4a4a4a;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;

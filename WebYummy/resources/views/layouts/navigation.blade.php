@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-orange-500 dark:bg-gray-800 border-b border-orange-600 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-orange-500 dark:bg-orange-500 border-b border-orange-600 dark:border-gray-700">
 
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +84,7 @@
     </div>
 
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        < class="pt-2 pb-3 space-y-1">
             @if(Auth::user()->rol === 'cliente')
                 <x-responsive-nav-link :href="route('cliente.dashboard')" :active="request()->routeIs('cliente.dashboard')" class="text-white">
                     {{ __('Cliente Dashboard') }}
@@ -112,7 +112,7 @@
                     {{ __('Mi Menú') }}
                 </x-responsive-nav-link>
             @endif
-        </div>
+        
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
