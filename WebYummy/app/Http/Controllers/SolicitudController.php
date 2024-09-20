@@ -21,7 +21,6 @@ class SolicitudController extends Controller
 
     public function store(Request $request)
     {
-        // Validar los datos del formulario con mensajes personalizados
         $request->validate([
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -48,8 +47,7 @@ class SolicitudController extends Controller
             'hora_apertura.required' => 'La hora de apertura es obligatoria.',
             'hora_cierre.required' => 'La hora de cierre es obligatoria.',
         ]);
-    
-        // Crear un nuevo usuario
+
         $user = User::create([
             'nombre' => $request->nombre,
             'email' => $request->email,
@@ -69,7 +67,7 @@ class SolicitudController extends Controller
             'estado' => 'Pendiente',
             'categoria' => $request->categoria,
         ]);
-    
+
         return redirect()->route('solicitudRestaurante.notificacion')->with('success', 'Restaurante registrado con éxito');
     }
 }
