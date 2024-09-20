@@ -4,9 +4,10 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('img/Logo_Blanco__1.png') }}" alt="Delivery Logo" class="block h-9 w-auto"/>
+                <div class="container shrink-0 flex items-center mx-auto justify-between">
+                    <a href="{{ route('dashboard') }}" class="flex items-center">
+                        <img src="{{ asset('img/Logo_Blanco__1.png') }}" alt="Delivery Logo" class="block w-auto h-10 mr-3"/>
+                        <span class="text-white text-lg font-semibold">YUMMY</span>
                     </a>
                 </div>
 
