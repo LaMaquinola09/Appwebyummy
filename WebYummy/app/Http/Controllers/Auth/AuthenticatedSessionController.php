@@ -43,7 +43,13 @@ class AuthenticatedSessionController extends Controller
         } else if($user->tipo == 'restaurante'){
             $restaurant = $user->restaurant;
             if($restaurant->estado == 'Pendiente'){
-                return redirect()->intended(RouteServiceProvider::INDEX);
+                Auth::guard('web')->logout();
+
+                $request->session()->invalidate();
+
+                $request->session()->regenerateToken();
+
+                return redirect('/');
             } else if($restaurant->estado == 'Activo'){
                 return redirect()->intended(RouteServiceProvider::HOME);
             }

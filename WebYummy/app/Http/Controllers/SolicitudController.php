@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Restaurante;
+use App\Models\User; // Importar el modelo User
+use App\Models\Restaurante; // Importar el modelo Restaurant
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -56,14 +56,15 @@ class SolicitudController extends Controller
             'password' => Hash::make($request->password),
             'tipo' => 'restaurante',
         ]);
-
+    
+        // Crear un nuevo restaurante relacionado con el usuario
         Restaurante::create([
             'user_id' => $user->id,
             'nombre' => $request->nombre_negocio,
             'direccion' => $request->direccion,
             'telefono' => $request->telefono,
             'horario' => $request->hora_apertura . ' - ' . $request->hora_cierre,
-            'estado' => 'pendiente',
+            'estado' => 'Pendiente',
             'categoria' => $request->categoria,
         ]);
 
