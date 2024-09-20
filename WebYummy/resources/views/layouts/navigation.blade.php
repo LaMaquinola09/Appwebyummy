@@ -1,4 +1,8 @@
 <nav x-data="{ open: false }" class="bg-orange-500 dark:bg-gray-800 border-b border-orange-600 dark:border-gray-700">
+<<<<<<< HEAD
+=======
+    <!-- Primary Navigation Menu -->
+>>>>>>> 399112bf9b92bf95e08150db6147811e0a98f432
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
@@ -35,6 +39,15 @@
                             {{ __('Mi Menú') }}
                         </x-nav-link>
                     @endif
+                    <x-nav-link :href="route('pedidos')" :active="request()->routeIs('pedidos')" class="text-white hover:text-yellow-400">
+                        {{ __('Pedidos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('restaurants')" :active="request()->routeIs('restaurants')" class="text-white hover:text-yellow-400">
+                        {{ __('Restaurantes') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('drivers')" :active="request()->routeIs('drivers')" class="text-white hover:text-yellow-400">
+                        {{ __('Repartidores') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -60,6 +73,10 @@
                             @csrf
                             <x-dropdown-link :href="route('logout')" class="text-gray-700 dark:text-gray-200"
                                 onclick="event.preventDefault(); this.closest('form').submit();">
+
+                            <x-dropdown-link :href="route('logout')" class="text-gray-700 dark:text-gray-200"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
                                 {{ __('Cerrar sesión') }}
                             </x-dropdown-link>
                         </form>
@@ -108,6 +125,18 @@
             @endif
         </div>
 
+            <x-responsive-nav-link :href="route('pedidos')" :active="request()->routeIs('pedidos')" class="text-white">
+                {{ __('Pedidos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('restaurants')" :active="request()->routeIs('restaurants')" class="text-white">
+                {{ __('Restaurantes') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('drivers')" :active="request()->routeIs('drivers')" class="text-white">
+                {{ __('Repartidores') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-orange-400 dark:border-gray-600">
             <div class="px-4">
                 <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
@@ -123,6 +152,10 @@
                     @csrf
                     <x-responsive-nav-link :href="route('logout')" class="text-white"
                         onclick="event.preventDefault(); this.closest('form').submit();">
+
+                    <x-responsive-nav-link :href="route('logout')" class="text-white"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
                         {{ __('Cerrar sesión') }}
                     </x-responsive-nav-link>
                 </form>
