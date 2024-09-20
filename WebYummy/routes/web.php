@@ -30,10 +30,10 @@ Route::post('/solicitudes', [SolicitudController::class, 'store'])->name('solici
 Route::resource('menu_items', MenuItemController::class);
 
 
-Route::get('/menu', [MenuItemController::class, 'index'])->name('restaurants');
-Route::get('/createmenu', [MenuItemController::class, 'create'])->name('menu.create');
-Route::get('/guardar', [MenuItemController::class, 'store'])->name('menu.store');
-Route::resource('platos', MenuItemController::class);
+Route::get('/menu', [MenuItemController::class, 'index'])->name('platos.index');
+Route::get('/createmenu', [MenuItemController::class, 'create'])->name('platos.create');
+Route::post('/platos', [MenuItemController::class, 'store'])->name('platos.store');
+Route::resource('platos', MenuItemController::class)->except(['create', 'store']);
 
 
 

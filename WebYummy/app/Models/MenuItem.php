@@ -9,7 +9,7 @@ class MenuItem extends Model
 {
     use HasFactory;
 
-    protected $table = 'menu_items'; // Tabla asociada
+    protected $table = 'menu_items';
 
     protected $fillable = [
         'restaurante_id',
@@ -19,7 +19,6 @@ class MenuItem extends Model
         'imagen_url',
     ];
     
-    // Relaciones
     public function restaurante()
     {
         return $this->belongsTo(Restaurante::class);

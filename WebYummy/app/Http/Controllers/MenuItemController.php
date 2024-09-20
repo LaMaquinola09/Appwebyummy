@@ -2,38 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MenuItem; // Asegúrate de importar el modelo
+use App\Models\MenuItem; 
 use Illuminate\Http\Request;
 
 class MenuItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $platos = MenuItem::all(); // Obtener todos los platos
-        return view('menu.index', ['platos' => $platos, 'restaurante_id' => 1]); // Cambia 1 por el ID real del restaurante
+        return view('menu.index', ['platos' => $platos, 'restaurante_id' => 1]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('menu.create', ['restaurante_id' => 1]); // Cambia 1 por el ID real del restaurante
+        return view('menu.create', ['restaurante_id' => 1]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         try {
@@ -57,23 +41,8 @@ class MenuItemController extends Controller
 
     // Métodos restantes para mostrar, editar y eliminar platos
 
-    public function show($id)
-    {
-        // Lógica para mostrar un plato específico si es necesario
-    }
-
-    public function edit($id)
-    {
-        // Lógica para editar un plato específico si es necesario
-    }
-
-    public function update(Request $request, $id)
-    {
-        // Lógica para actualizar un plato específico si es necesario
-    }
-
-    public function destroy($id)
-    {
-        // Lógica para eliminar un plato específico si es necesario
-    }
+    public function show($id) { /* ... */ }
+    public function edit($id) { /* ... */ }
+    public function update(Request $request, $id) { /* ... */ }
+    public function destroy($id) { /* ... */ }
 }
