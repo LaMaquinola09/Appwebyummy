@@ -30,22 +30,36 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // Validación de los campos, incluyendo el rol
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'nombre' => ['required', 'string', 'max:255'], // Validación del nombre
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class], // Validación del email
+            'password' => ['required', 'confirmed', Rules\Password::defaults()], // Validación de la contraseña
+            'direccion' => ['required', 'string', 'max:255'], // Validación de la dirección
+            'telefono' => ['required', 'string', 'max:20'], // Validación del teléfono
+            'vehiculo' => ['nullable', 'in:moto,bicicleta,ninguno'], // Validación del vehículo (opcional)
+            'rol' => ['required', 'in:cliente,repartidor,restaurante'], // Validación del rol
+
         ]);
 
+        // Creación del usuario con los nuevos campos
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'nombre' => $request->nombre, // Guardar nombre
+            'email' => $request->email, // Guardar email
+            'password' => Hash::make($request->password), // Encriptar y guardar contraseña
+            'direccion' => $request->direccion, // Guardar dirección
+            'telefono' => $request->telefono, // Guardar teléfono
+            'vehiculo' => $request->vehiculo, // Guardar vehículo (puede ser nulo)
+            'rol' => $request->rol, // Guardar rol
         ]);
 
+        // Disparar el evento de registro
         event(new Registered($user));
 
+        // Iniciar sesión automáticamente después del registro
         Auth::login($user);
 
+        // Redirigir al home después de registrarse
         return redirect(RouteServiceProvider::HOME);
     }
 }
