@@ -14,7 +14,7 @@
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('restaurants')" :active="request()->routeIs('restaurants')" class="text-white hover:text-yellow-400">
-                            {{ __('Solicitud de registro de estaurantes') }}
+                            {{ __('Solicitud de registro de restaurantes') }}
                         </x-nav-link>
                     </div>
                 </div>

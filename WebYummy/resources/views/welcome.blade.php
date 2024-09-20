@@ -185,16 +185,7 @@
         </div>
 
         <nav class="auth-links">
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="auth-link">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="auth-link">Iniciar Sesion</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="auth-link">Registrase </a>
-                    @endif
-                @endauth
-            @endif
+            <a href="{{ route('login') }}" class="auth-link">Iniciar Sesion</a>
         </nav>
 
         <button class="hamburger-menu">&#9776;</button>
