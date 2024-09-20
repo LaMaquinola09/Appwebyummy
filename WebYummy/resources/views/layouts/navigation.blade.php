@@ -91,6 +91,7 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('cliente.historial')" :active="request()->routeIs('cliente.historial')" class="text-white">
                     {{ __('Historial de Pedidos') }}
+                
                 </x-responsive-nav-link>
             @endif
 

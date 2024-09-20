@@ -9,10 +9,22 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\RestauranteController;
 use App\Http\Controllers\RepartidorController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SolicitudController;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/solicitudes', [SolicitudController::class, 'index'])->name('solicitudes');
+
+// Guardar los datos enviados del formulario
+Route::post('/solicitudes', [SolicitudController::class, 'store'])->name('solicitudes.store');
+
+
+
+
 
 // Ruta general del dashboard
 Route::get('/dashboard', function () {
