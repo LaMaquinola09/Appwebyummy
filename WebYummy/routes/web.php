@@ -16,7 +16,7 @@ use App\Http\Controllers\MenuItemController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->name('welcome');
 });
 
 
