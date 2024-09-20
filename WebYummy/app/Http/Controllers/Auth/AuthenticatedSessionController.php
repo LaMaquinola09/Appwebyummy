@@ -41,7 +41,12 @@ class AuthenticatedSessionController extends Controller
             ]);
             
         } else if($user->tipo == 'restaurante'){
-            return redirect()->intended(RouteServiceProvider::HOME);
+            $restaurant = $user->restaurant;
+            if($restaurant->estado == 'Pendiente'){
+                return redirect()->intended(RouteServiceProvider::INDEX);
+            } else if($restaurant->estado == 'Activo'){
+                return redirect()->intended(RouteServiceProvider::HOME);
+            }
         }
     }
 

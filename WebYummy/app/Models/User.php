@@ -25,6 +25,11 @@ class User extends Authenticatable
         'password'
     ];
 
+    public function restaurant()
+    {
+        return $this->hasOne(Restaurant::class); // Asumiendo que un usuario tiene un restaurante
+    }
+
     /**
      * Los atributos que deben ocultarse para la serialización.
      *
