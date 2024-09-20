@@ -11,6 +11,7 @@ use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\LegalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\MenuItemController;
 
 
 Route::get('/', function () {
@@ -25,6 +26,12 @@ Route::get('/registrosolicitud', [SolicitudController::class, 'create'])->name('
 
 // Ruta para almacenar la solicitud
 Route::post('/solicitudes', [SolicitudController::class, 'store'])->name('solicitudes.store');
+Route::resource('menu_items', MenuItemController::class);
+
+
+Route::get('/menu', [MenuItemController::class, 'index'])->name('menu.index');
+Route::get('/createmenu', [MenuItemController::class, 'create'])->name('menu.create');
+
 
 
 
@@ -43,6 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    
     
     // Rutas para Pedidos
     Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
