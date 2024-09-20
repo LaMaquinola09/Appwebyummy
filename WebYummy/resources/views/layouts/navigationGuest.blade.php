@@ -7,13 +7,13 @@
                 <!-- Logo -->
                 <div class="container shrink-0 flex items-center mx-auto justify-between">
                     <a href="/" class="flex items-center">
-                        <img src="{{ asset('img/Logo_Blanco__1.png') }}" alt="Delivery Logo" class="block w-auto h-10 mr-3"/>
+                        <img src="{{ asset('img/Logo_Blanco__1.png') }}" alt="YUMMY" class="block w-auto h-10 mr-3"/>
                         <span class="text-white text-lg font-semibold">YUMMY</span>
                     </a>
                     <!-- Navigation Links -->
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('solicitudes')" :active="request()->routeIs('restaurants')" class="text-white hover:text-yellow-400">
+                        <x-nav-link :href="route('solicitudes')" :active="request()->routeIs('solicitudes')" class="text-white hover:text-yellow-400">
                             {{ __('Solicitud de registro de restaurantes') }}
                         </x-nav-link>
                     </div>
@@ -24,7 +24,7 @@
 
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')" class="text-white">
+                <x-responsive-nav-link :href="route('solicitudes')" :active="request()->routeIs('solicitudes')" class="text-white">
                     {{ __('Solicitud de registro de restaurantes') }}
                 </x-responsive-nav-link>
         </div>

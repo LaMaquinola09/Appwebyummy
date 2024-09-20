@@ -186,6 +186,7 @@
 
         <nav class="auth-links">
             <a href="{{ route('login') }}" class="auth-link">Iniciar Sesion</a>
+            <a href="{{ route('solicitudes') }}" class="text-white auth-link">{{ __('Solicitud de registro de restaurantes') }}</a>
         </nav>
 
         <button class="hamburger-menu">&#9776;</button>
