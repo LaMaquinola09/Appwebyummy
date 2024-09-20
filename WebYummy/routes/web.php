@@ -30,7 +30,7 @@ Route::post('/solicitudes', [SolicitudController::class, 'store'])->name('solici
 Route::resource('menu_items', MenuItemController::class);
 
 
-Route::get('/menu', [MenuItemController::class, 'index'])->name('menu.index');
+Route::get('/menu', [MenuItemController::class, 'index'])->name('restaurants');
 Route::get('/createmenu', [MenuItemController::class, 'create'])->name('menu.create');
 
 
@@ -58,7 +58,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
     
     // Rutas para Restaurantes
-    Route::get('/restaurantes', [RestauranteController::class, 'index'])->name('restaurants');
     
     // Rutas para Repartidores
     Route::get('/repartidores', [RepartidorController::class, 'index'])->name('drivers');
