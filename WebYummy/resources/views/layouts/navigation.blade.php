@@ -1,4 +1,3 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
 <nav x-data="{ open: false }" class="bg-orange-500 dark:bg-gray-800 border-b border-orange-600 dark:border-gray-700">
 
     <!-- Primary Navigation Menu -->
@@ -75,10 +74,6 @@
                             @csrf
                             <x-dropdown-link :href="route('logout')" class="text-gray-700 dark:text-gray-200"
                                 onclick="event.preventDefault(); this.closest('form').submit();">
-
-                            <x-dropdown-link :href="route('logout')" class="text-gray-700 dark:text-gray-200"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
                                 {{ __('Cerrar sesión') }}
                             </x-dropdown-link>
                         </form>
@@ -127,17 +122,6 @@
             @endif
         </div>
 
-            <x-responsive-nav-link :href="route('pedidos')" :active="request()->routeIs('pedidos')" class="text-white">
-                {{ __('Pedidos') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('restaurants')" :active="request()->routeIs('restaurants')" class="text-white">
-                {{ __('Restaurantes') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('drivers')" :active="request()->routeIs('drivers')" class="text-white">
-                {{ __('Repartidores') }}
-            </x-responsive-nav-link>
-        </div>
-
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
@@ -154,10 +138,6 @@
                     @csrf
                     <x-responsive-nav-link :href="route('logout')" class="text-white"
                         onclick="event.preventDefault(); this.closest('form').submit();">
-
-                    <x-responsive-nav-link :href="route('logout')" class="text-white"
-                        onclick="event.preventDefault();
-                                    this.closest('form').submit();">
                         {{ __('Cerrar sesión') }}
                     </x-responsive-nav-link>
                 </form>
