@@ -150,7 +150,7 @@
             <input type="time" name="hora_cierre" id="hora_cierre" required>
 
             <div class="clearfix">
-                <button type="button" class="cancelbtn">Cancelar</button>
+                <a href="/"><button type="button" class="cancelbtn">Cancelar</button></a>
                 <button type="submit" class="signupbtn">Registrar</button>
             </div>
         </div>

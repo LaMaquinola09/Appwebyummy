@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-orange-500 dark:bg-gray-800 border-b border-orange-600 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-orange-500 dark:bg-orange-500 border-b border-orange-600 dark:border-gray-700">
 
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -7,7 +7,7 @@
                 <!-- Logo -->
                 <div class="container shrink-0 flex items-center mx-auto justify-between">
                     <a href="/" class="flex items-center">
-                        <img src="{{ asset('img/Logo_Blanco__1.png') }}" alt="Delivery Logo" class="block w-auto h-10 mr-3"/>
+                        <img src="{{ asset('img/Logo_Blanco__1.png') }}" alt="YUMMY" class="block w-auto h-10 mr-3"/>
                         <span class="text-white text-lg font-semibold">YUMMY</span>
                     </a>
                     <!-- Navigation Links -->

@@ -128,6 +128,8 @@ body {
         </div>
     </div>
     <div class="footer-bottom">
+        <a href="{{ route('terminos') }}">Términos y condiciones.</a> <br>
+        <a href="{{ route('aviso_privacidad') }}">Aviso de privacidad.</a>
         <p>&copy; 2024 YUMMY. Todos los derechos reservados.</p>
     </div>
 </footer>

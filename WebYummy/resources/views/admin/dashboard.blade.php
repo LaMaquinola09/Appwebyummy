@@ -11,6 +11,17 @@
                 <div class="p-6 text-gray-900">
                     {{ __("Bienvenido Administrador") }}
                 </div>
+                @if(isset($pendingRestaurants))
+                    <ul>
+                        @foreach($pendingRestaurants as $restaurant)
+                            <li>{{ $restaurant->name }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    <ul>
+                        <li>No se encontraron restaurantes pendientes</li>
+                    </ul>
+                @endif
             </div>
         </div>
     </div>

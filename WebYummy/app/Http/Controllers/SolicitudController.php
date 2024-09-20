@@ -21,19 +21,34 @@ class SolicitudController extends Controller
 
     public function store(Request $request)
     {
-        // Validar los datos del formulario
+        // Validar los datos del formulario con mensajes personalizados
         $request->validate([
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'direccion' => 'required|string|max:255',
-            'telefono' => 'required|string|max:15',
+            'telefono' => 'required|string|max:10',
             'password' => 'required|string|confirmed|min:8',
             'nombre_negocio' => 'required|string|max:255',
             'categoria' => 'required|string|max:50',
             'hora_apertura' => 'required',
             'hora_cierre' => 'required',
+        ], [
+            'nombre.required' => 'El nombre es obligatorio.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.email' => 'El formato del correo electrónico no es válido.',
+            'email.unique' => 'El correo electrónico ya está en uso.',
+            'direccion.required' => 'La dirección es obligatoria.',
+            'telefono.required' => 'El teléfono es obligatorio.',
+            'telefono.max' => 'El teléfono no puede tener más de 10 caracteres.',
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.confirmed' => 'Las contraseñas no coinciden.',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+            'nombre_negocio.required' => 'El nombre del negocio es obligatorio.',
+            'categoria.required' => 'La categoría es obligatoria.',
+            'hora_apertura.required' => 'La hora de apertura es obligatoria.',
+            'hora_cierre.required' => 'La hora de cierre es obligatoria.',
         ]);
-
+    
         // Crear un nuevo usuario
         $user = User::create([
             'nombre' => $request->nombre,
@@ -43,7 +58,7 @@ class SolicitudController extends Controller
             'password' => Hash::make($request->password),
             'tipo' => 'restaurante',
         ]);
-
+    
         // Crear un nuevo restaurante relacionado con el usuario
         Restaurant::create([
             'user_id' => $user->id,
@@ -54,7 +69,7 @@ class SolicitudController extends Controller
             'estado' => 'activo',
             'categoria' => $request->categoria,
         ]);
-
+    
         return redirect()->route('solicitudRestaurante.notificacion')->with('success', 'Restaurante registrado con éxito');
     }
 }
