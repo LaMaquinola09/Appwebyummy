@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MenuItem; // Asegúrate de importar el modelo
 use Illuminate\Http\Request;
 
 class MenuItemController extends Controller
@@ -13,8 +14,8 @@ class MenuItemController extends Controller
      */
     public function index()
     {
-        
-        return view('menu.index');
+        $platos = MenuItem::all(); // Obtener todos los platos
+        return view('menu.index', ['platos' => $platos, 'restaurante_id' => 1]); // Cambia 1 por el ID real del restaurante
     }
 
     /**
@@ -24,7 +25,7 @@ class MenuItemController extends Controller
      */
     public function create()
     {
-        return view('menu.create');
+        return view('menu.create', ['restaurante_id' => 1]); // Cambia 1 por el ID real del restaurante
     }
 
     /**
@@ -35,51 +36,44 @@ class MenuItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'nombre_producto' => 'required|string|max:255',
+                'descripcion' => 'required|string',
+                'precio' => 'required|numeric',
+                'imagen_url' => 'required|url',
+                'restaurante_id' => 'required|exists:restaurantes,id',
+            ]);
+    
+            MenuItem::create($request->all());
+    
+            return redirect()->route('platos.index')->with('success', 'Plato creado con éxito');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->back()->withErrors($e->validator->errors())->withInput();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // Métodos restantes para mostrar, editar y eliminar platos
+
     public function show($id)
     {
-        //
+        // Lógica para mostrar un plato específico si es necesario
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        // Lógica para editar un plato específico si es necesario
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        // Lógica para actualizar un plato específico si es necesario
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        // Lógica para eliminar un plato específico si es necesario
     }
 }
