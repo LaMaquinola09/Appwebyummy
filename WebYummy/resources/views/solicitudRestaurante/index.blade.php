@@ -98,10 +98,19 @@
         <div class="container">
             <h1>Solicitud de Restaurante</h1>
 
+            @if ($errors->any())
+                <div>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <p>Ingresa tus datos personales.</p>
             <hr>
 
-            <!-- Datos para la tabla Users -->
             <label for="nombre"><b>Nombre</b></label>
             <input type="text" placeholder="Ingresa tu nombre" name="nombre" id="nombre" required>
 

@@ -24,4 +24,15 @@ class Restaurant extends Model
         'horario',
         'estado'
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
+
+
+
 }
