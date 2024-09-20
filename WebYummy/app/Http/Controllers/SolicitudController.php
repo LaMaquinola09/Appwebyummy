@@ -11,12 +11,12 @@ class SolicitudController extends Controller
 {
     public function index()
     {
-        return view('solicitudRestaurante.index');
+        return view('solicitudRestaurante.notificacion');
     }
 
     public function create()
     {
-        return view('solicitudRestaurante.create');
+        return view('solicitudRestaurante.Solicitud');
     }
 
     public function store(Request $request)
@@ -55,6 +55,6 @@ class SolicitudController extends Controller
             'categoria' => $request->categoria,
         ]);
 
-        return redirect()->route('restaurante.index')->with('success', 'Restaurante registrado con éxito');
+        return redirect()->route('solicitudRestaurante.notificacion')->with('success', 'Restaurante registrado con éxito');
     }
 }

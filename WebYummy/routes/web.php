@@ -17,12 +17,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/solicitudes', [SolicitudController::class, 'index'])->name('solicitudes');
+Route::get('/notificacion', [SolicitudController::class, 'index'])->name('solicitudRestaurante.notificacion');
 
-// Guardar los datos enviados del formulario
+// Ruta para mostrar el formulario de registro de solicitud
+Route::get('/registrosolicitud', [SolicitudController::class, 'create'])->name('Registrosolicitud');
+
+// Ruta para almacenar la solicitud
 Route::post('/solicitudes', [SolicitudController::class, 'store'])->name('solicitudes.store');
-
-
 
 
 
