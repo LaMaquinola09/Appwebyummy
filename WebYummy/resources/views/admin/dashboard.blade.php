@@ -11,10 +11,10 @@
                 <div class="p-6 text-gray-900">
                     {{ __("Bienvenido Administrador") }}
                 </div>
-                @if(isset($pendingRestaurants))
+                @if(session('pendingRestaurants') && count(session('pendingRestaurants')) > 0)
                     <ul>
-                        @foreach($pendingRestaurants as $restaurant)
-                            <li>{{ $restaurant->name }}</li>
+                        @foreach(session('pendingRestaurants') as $restaurant)
+                            <li>{{ $restaurant->nombre }}</li>
                         @endforeach
                     </ul>
                 @else
